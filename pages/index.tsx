@@ -8,6 +8,16 @@ import { Skils } from "@/Components/Skils";
 import React, { useEffect, useState } from "react";
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
+import { Education } from "@/Components/Education";
+interface Event {
+  heading: string;
+  subHeading: string;
+  time: string;
+  company: string;
+  direction: 'left' | 'right'; // Specify the direction property with the correct union type
+  skills: string[];
+}
+
 const HomePage = () => {
   const [nav,setNav] = useState(false)
   const openNav = () =>{setNav(true)}
@@ -41,22 +51,57 @@ AOS.init({
 
 });
   })
-  return <div className="overflow-x-hidden">
+  const events: Event[] = [
+    {
+        heading:'Software Developer',
+        subHeading:`Led the deployment of AWS Greengrass for edge computing on sensor devices, ensuring seamless data processing at the edge. Implemented scalable backend infrastructure with <strong style={{ color: '#55e6a5' }}>AWS DynamoDB</strong> for efficient real-time data storage and retrieval.\n Collaborated on developing PeopleSenseTM sensor, enhancing real-time train data retrieval and integrating it into web applications for improved client visibility. Integrated SCADA system data into PeopleSense dashboards, enhancing monitoring capabilities.`,
+        time:'01/2024-Present',
+        company:'Glocol Networks',
+        direction:'right',
+        skills:['TyperScript','AWS']
+    },
+    {
+        heading:'Software Developer',
+        subHeading:'Developed and collaborated on full-stack projects, leveraging HTML, CSS, JavaScript, React.js, MySQL, and Node.js. Managed team-based projects following agile methodologies. Conducted thorough code reviews, enhancing code quality and project efficiency. Played a key role in troubleshooting and resolving software issues, ensuring project success. Committed to ongoing learning and skill development in a fast-paced, team-oriented setting.',
+        time:'04/2023-Present',
+        company:'Glocol Networks',
+        direction:'left',
+        skills:['TyperScript','AWS']
+    },
+    {
+      heading:'Software Developer',
+      subHeading:`Led the deployment of AWS Greengrass for edge computing on sensor devices, ensuring seamless data processing at the edge. Implemented scalable backend infrastructure with AWS DynamoDB for efficient real-time data storage and retrieval. Collaborated on developing PeopleSenseTM sensor, enhancing real-time train data retrieval and integrating it into web applications for improved client visibility. Integrated SCADA system data into PeopleSense dashboards, enhancing monitoring capabilities.`,
+      time:'01/2024-Present',
+      company:'Glocol Networks',
+      direction:'right',
+      skills:['TyperScript','AWS']
+  },
+  {
+      heading:'Software Developer',
+      subHeading:'Developed and collaborated on full-stack projects, leveraging HTML, CSS, JavaScript, React.js, MySQL, and Node.js. Managed team-based projects following agile methodologies. Conducted thorough code reviews, enhancing code quality and project efficiency. Played a key role in troubleshooting and resolving software issues, ensuring project success. Committed to ongoing learning and skill development in a fast-paced, team-oriented setting.',
+      time:'04/2023-Present',
+      company:'Glocol Networks',
+      direction:'left',
+      skills:['TyperScript','AWS']
+  },
+
+]
+  return ( <div className="overflow-x-hidden">
     <div>
       {/*Navbar*/}
       <MobileNav nav={nav} closeNav={closeNav}/>
       <Nav openNav={openNav}/>
-      {/* Hero section */}
       <Hero/>
       <div className="relative z-[30]">
-        {/* About */}
         <About/>
         <Skils/>
         <Projects/>
+        <Education events={events}/>
         <Footer/>
       </div>
       </div>
-  </div>;
+  </div>
+  )
 };
 
 export default HomePage;

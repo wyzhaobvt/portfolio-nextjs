@@ -11,7 +11,7 @@ export const Hero = () => {
 
 <div>
 <h1 className='text-[350px] md:text-[50px] text-white font-bold'>
-    Hi, I'M <span className='text-yellow-400'>WEIYU!</span>
+    Hi, I&apos;M <span className='text-yellow-400'>WEIYU!</span>
 </h1>
 
 <TextEffect/>
